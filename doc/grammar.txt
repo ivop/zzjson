@@ -1,0 +1,61 @@
+
+JSONFILE
+    OBJECT | ARRAY
+
+OBJECT
+    '{' '}' | '{' MEMBERS '}'
+
+MEMBERS
+    PAIR | PAIR ',' MEMBERS
+
+PAIR
+    STRING ':' VALUE
+
+ARRAY
+    '[' ']' | '[' ELEMENTS ']'
+
+ELEMENTS
+    VALUE | VALUE ',' ELEMENTS
+
+VALUE
+    STRING | NUMBER | OBJECT | ARRAY | "true" | "false" | "null"
+
+STRING
+    '"' '"' | '"' CHARS '"'
+
+CHARS
+    CHAR | CHAR CHARS
+
+CHAR
+    any character, except '"', '\' and raw control characters |
+    '\' '"' | "\\" | "\/" | "\b" | "\f" | "\n" | "\r" | "\t" |
+    "\u" HEXDIGIT HEXDIGIT HEXDIGIT HEXDIGIT
+
+HEXDIGIT
+    DIGIT | 'a' | 'A' | 'b' | 'B' | 'c' | 'C' | 'd' | 'D' | 'e' | 'E' |
+    'f' | 'F'
+
+NUMBER
+    INT | INT FRAC | INT EXP | INT FRAC EXP
+
+INT
+    DIGIT | DIGIT1_9 DIGITS | '-' DIGIT | '-' DIGIT1_9 DIGITS
+
+FRAC
+    '.' DIGITS
+
+EXP
+    E DIGITS
+
+DIGITS
+    DIGIT | DIGIT DIGITS
+
+E
+    'e' | "e+" | "e-" | 'E' | "E+" | "E-"
+
+DIGIT
+    '0' | DIGIT1_9
+
+DIGIT1_9
+    '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+
