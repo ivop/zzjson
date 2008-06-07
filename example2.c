@@ -1,4 +1,7 @@
-/* compile with:
+/* ZZJSON - example 2 - Copyright (C) 2008 by Ivo van Poorten
+ * License: GNU Lesser General Public License version 2.1
+ *
+ * compile with:
  *
  * gcc -Iunicode -o example2 example2.c zzjson_{parse,free,print}.c \
  *                                  unicode/unicode_callbacks.c -lm -W -Wall

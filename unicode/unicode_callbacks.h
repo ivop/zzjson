@@ -1,3 +1,7 @@
+/* ZZJSON - Unicode Callbacks - Copyright (C) 2008 by Ivo van Poorten
+ * License: GNU Lesser General Public License version 2.1
+ */
+
 #ifndef UNICODE_CALLBACKS_H
 #define UNICODE_CALLBACKS_H
 
