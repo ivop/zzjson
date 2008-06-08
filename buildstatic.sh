@@ -9,7 +9,7 @@ create_lib() {
         execute $CC $NOLINK -o $j $CFLAGS $i
         execute $AR r lib/$LIBAV $j
     done
-    execute ln -s lib/$LIBAV lib/$LIBA
+    execute ln -s $LIBAV lib/$LIBA
 }
 
 LIBA=${LIBBASE}$LIBSTATICSUF
