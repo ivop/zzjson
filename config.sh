@@ -2,10 +2,10 @@
 
 set -e
 
-VERSION=`grep ZZJSON_IDENT zzjson.h | cut -d '"' -f 2 | cut -d ' ' -f 2`
+VERSION=`grep ZZJSON_IDENT include/zzjson.h | cut -d '"' -f2 | cut -d ' ' -f2`
 echo "zzjson, version $VERSION"
 
-LIBSRC=`eval echo zzjson_{parse,print,query,create,free}.c`
+LIBSRC=`eval echo src/zzjson_{parse,print,query,create,free}.c`
 LIBBASE=libzzjson
 LIBSTATICSUF=.a
 LIBSHAREDSUFV=$VERSION.so
@@ -20,6 +20,7 @@ AR=ar
 NOLINK="-c"
 SHARED="-shared"
 STRIP="strip -s"
+INCLUDES="-Iinclude"
 
 if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"

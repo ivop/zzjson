@@ -14,22 +14,20 @@ create_lib() {
 
 LIBA=${LIBBASE}$LIBSTATICSUF
 LIBAV=${LIBBASE}.$VERSION$LIBSTATICSUF
-CFLAGS="$OPTMAX $WARN $DEFINES"
+CFLAGS="$INCLUDES $OPTMAX $WARN $DEFINES"
 echo "*** static library, optimized"
 create_lib
 
 LIBA=${LIBBASE}_g$LIBSTATICSUF
 LIBAV=${LIBBASE}_g.$VERSION$LIBSTATICSUF
-CFLAGS="$OPTMIN $WARN $DEFINES $DEBUG"
+CFLAGS="$INCLUDES $OPTMIN $WARN $DEFINES $DEBUG"
 echo
 echo "*** static library, non-optimized, debug info"
 create_lib
 
 LIBA=${LIBBASE}_s$LIBSTATICSUF
 LIBAV=${LIBBASE}_s.$VERSION$LIBSTATICSUF
-CFLAGS="$OPTSIZ $WARN $DEFINES"
+CFLAGS="$INCLUDES $OPTSIZ $WARN $DEFINES"
 echo
 echo "*** static library, size optimized"
 create_lib
-
-test -n "$OBJSUF" && execute rm -f *$OBJSUF
