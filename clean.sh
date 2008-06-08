@@ -5,7 +5,7 @@
 echo "*** cleaning up"
 echo
 
-execute rm -f *~ \
+execute rm -f *~ */*~ \
               zzjson_test{,_g,_s}${EXESUF} \
               example1{,_g,_s}${EXESUF} \
               example2{,_g,_s}${EXESUF}
