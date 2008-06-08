@@ -17,4 +17,4 @@ echo
 echo "*** test program, size optimized, stripped"
 execute $CC -o ${EXEBASE}_s${EXESUF} zzjson_*.c $COMMON $OPTSIZ $STRIP
 
-rm -f *${OBJSUF}
+test -n "$OBJSUF" && rm -f *${OBJSUF}
