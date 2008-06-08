@@ -4,9 +4,18 @@ VERSION=`grep ZZJSON_IDENT zzjson.h | cut -d '"' -f 2 | cut -d ' ' -f 2`
 echo "zzjson, version $VERSION"
 
 LIBSRC=`eval echo zzjson_{parse,print,query,create,free}.c`
+LIBBASE=libzzjson
+LIBSTATICSUF=.a
+LIBSHAREDSUFV=$VERSION.so
+LIBSHAREDSUF=.so
+EXESUF=
+OBJSUF=.o
+
 CC=${CC:-cc}
 LIBS="-lm -lc"
 DEFINES="-D_ISOC99_SOURCE"
+AR=ar
+NOLINK="-c"
 
 if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"

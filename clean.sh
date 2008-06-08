@@ -1,3 +1,15 @@
 #! /bin/sh
 
-rm -f *~ zzjson_test zzjson_test_g zzjson_test_s *.o *.a example1 example2
+. config.sh
+
+echo "*** cleaning up"
+echo
+
+execute rm -f *~ \
+              zzjson_test${EXESUF} \
+              zzjson_test_g${EXESUF} \
+              zzjson_test_s${EXESUF} \
+              example1${EXESUF} example2${EXESUF}
+test -n "$OBJSUF"       && execute rm -f *${OBJSUF}
+test -n "$LIBSTATICSUF" && execute rm -f *${LIBSTATICSUF}
+test -n "$LIBSHAREDSUF" && execute rm -f *${LIBSHAREDSUF}
