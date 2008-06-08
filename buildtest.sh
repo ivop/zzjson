@@ -4,9 +4,6 @@
 
 EXEBASE=zzjson_test
 
-echo "zzjson, version $VERSION"
-echo
-
 echo "*** test program, optimized, stripped"
 execute $CC -o ${EXEBASE}   zzjson_*.c $LIBS $WARN $OPTMAX $STRIP $DEFINES
 
