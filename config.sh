@@ -1,5 +1,7 @@
 #! /bin/sh
 
+set -e
+
 VERSION=`grep ZZJSON_IDENT zzjson.h | cut -d '"' -f 2 | cut -d ' ' -f 2`
 echo "zzjson, version $VERSION"
 
