@@ -16,19 +16,19 @@ typedef enum UNIType {
 } UNIType;
 
 typedef struct UNIContext {
-    void *ihandle;                          // in
-    int (*getchar)(void *ihandle);          // in
-    int (*ungetchar)(int c, void *ihandle); // in
-    UNIType type;                           // in out
-    unsigned int bigendian;                 // in out
-    unsigned int bufp;                      // in
-    char ungetcbuf[UNGETCBUFSIZ];           // in
-    unsigned int escape;                    // in
-    unsigned int unival;                    // in out
-    void *ohandle;                          //    out
-    int (*putchar)(int c, void *ohandle);   //    out
-    unsigned int ostate;                    //    out
-    unsigned int xunival;                   //    out;
+    void *ihandle;                                          // in
+    int (*getchar)(void *ihandle);                          // in
+    int (*ungetchar)(int c, void *ihandle);                 // in
+    UNIType type;                                           // in out
+    unsigned int bigendian;                                 // in out
+    unsigned int bufp;                                      // in
+    char ungetcbuf[UNGETCBUFSIZ];                           // in
+    unsigned int escape;                                    // in
+    unsigned int unival;                                    // in out
+    void *ohandle;                                          //    out
+    int (*putchar)(int c, void *ohandle);                   //    out
+    unsigned int ostate;                                    //    out
+    unsigned int xunival;                                   //    out
     void *ehandle;                                          // in out
     void (*error)(void *ehandle, const char *format, ...);  // in out
 } UNIContext;
