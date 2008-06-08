@@ -21,6 +21,11 @@ If you build the test and run test.sh, you may notice that fail18 does not
 fail. This is perfectly normal. fail18 tests deep nesting and I see no
 reason why it should fail on such a file.
 
+For API documentation and usage, see the wiki at:
+
+    http://sourceforge.net/projects/zzjson/
+
+
 
 [1] After I wrote the above, I implemented a proof-of-concept unicode
     callbacks implementation. It resides in the unicode/ directory and
