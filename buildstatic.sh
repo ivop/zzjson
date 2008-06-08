@@ -7,9 +7,9 @@ create_lib() {
     for i in $LIBSRC ; do
         j=${i%%.c}${OBJSUF}
         execute $CC $NOLINK -o $j $CFLAGS $i
-        execute $AR r $LIBAV $j
+        execute $AR r lib/$LIBAV $j
     done
-    execute ln -s $LIBAV $LIBA
+    execute ln -s lib/$LIBAV lib/$LIBA
 }
 
 LIBA=${LIBBASE}$LIBSTATICSUF

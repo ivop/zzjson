@@ -10,8 +10,8 @@ create_lib() {
         k="$k $j"
         execute $CC $NOLINK -o $j $CFLAGS $i
     done
-    execute $CC $SHARED -o $LIBSOV $k
-    execute ln -s $LIBSOV $LIBSO
+    execute $CC $SHARED -o lib/$LIBSOV $k
+    execute ln -s lib/$LIBSOV lib/$LIBSO
 }
 
 LIBSO=${LIBBASE}$LIBSHAREDSUF
