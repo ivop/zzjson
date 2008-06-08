@@ -43,7 +43,7 @@ int main(int argc, char **argv) {
 
     if (!zzjson) {
         fprintf(stderr, "%s: unable to parse json file\n", argv[0]);
-        fprintf(stderr, "%s: filepos: %llu\n", argv[0], (long long) ftell(fp));
+        fprintf(stderr, "%s: filepos: %lli\n", argv[0], (long long) ftell(fp));
         fclose(fp);
         return 1;
     }
