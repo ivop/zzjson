@@ -1,9 +1,5 @@
 /* ZZJSON - example 1 - Copyright (C) 2008 by Ivo van Poorten
  * License: GNU Lesser General Public License version 2.1
- *
- * compile with:
- *
- * gcc -o example1 example1.c zzjson_{create,print,free}.c -O3 -lm
  */
 
 #include <stdio.h>
