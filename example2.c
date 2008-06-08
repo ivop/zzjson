@@ -46,6 +46,8 @@ int main(int argc, char **argv) {
     unictx.ungetchar = (int(*)(int,void*)) ungetc;
     unictx.putchar   = (int(*)(int,void*)) fputc;
     unictx.ohandle   = stdout;
+    unictx.error     = myerror;
+    unictx.ehandle   = stderr;
 
     if (!(unictx.ihandle = fopen(argv[1], "rb"))) {
         fprintf(stderr, "%s: unable to open %s\n", argv[0], argv[1]);

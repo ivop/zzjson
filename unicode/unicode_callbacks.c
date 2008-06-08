@@ -8,6 +8,12 @@
 #include <stdint.h>
 #include "unicode_callbacks.h"
 
+#ifdef CONFIG_NO_ERROR_MESSAGES
+#define ERROR(x...)
+#else
+#define ERROR(x...)     uc->error(uc->ehandle, ##x)
+#endif
+
 static char hexval[] = "0123456789abcdef";
 
 static inline uint16_t bswap16(uint16_t x) {
@@ -70,6 +76,7 @@ static void parse_bom(UNIContext *uc) {
             break;
     }
 
+    ERROR("unicode: invalid BOM");
     uc->type = UNI_ERROR;
     return;
 }
@@ -106,7 +113,11 @@ doescape:
         case UNI_UTF8: {
             int b = 0;
             c = GETC();
-                 if (c>=0xf8) return -1;        // illegal
+                 if (c>=0xf8) {
+illegal_utf8:
+                     ERROR("unicode: illegal utf-8 sequence");
+                     return -1;
+                 }
             else if (c<=0x7f)   b=0;            // no continuation
             else if (c<=0xbf) { b=0; c&=0x3f; } // no continuation
             else if (c<=0xdf) { b=1; c&=0x1f; } // +1 byte
@@ -115,7 +126,7 @@ doescape:
 
             while(b--) {
                 int n = GETC();
-                if ((n&0xc0) != 0x80) return -1;  // illegal
+                if ((n&0xc0) != 0x80) goto illegal_utf8;
                 c <<= 6;
                 c  |= n & 0x3f;
             }
@@ -143,7 +154,10 @@ handle_as_utf16:
 
 handle_as_utf32:
             if (c <  0x010000) goto handle_as_utf16;
-            if (c >= 0x110000) return -1;
+            if (c >= 0x110000) {
+                ERROR("unicode: codepoint >= 0x110000");
+                return -1;
+            }
 
             c -= 0x10000;
             uc->unival  = (0xd800 | (c>>10)) << 16;
@@ -245,8 +259,10 @@ int unicode_putchar(int c, UNIContext *uc) {
     int r = 0;
 
     if (!uc->ostate) {
-        if (type != UNI_UTF8 && type != UNI_UTF16 && type != UNI_UTF32)
+        if (type != UNI_UTF8 && type != UNI_UTF16 && type != UNI_UTF32) {
+            ERROR("unicode: type not specified");
             return -1;
+        }
         r |= print_bom(uc);
         if (r < 0) return -1;
     }
