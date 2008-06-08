@@ -21,7 +21,6 @@ STRIP="strip -s"
 
 if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"
-    echo
     WARN="-W -Wall"
     DEBUG="-g3"
     OPTMAX="-O3"
@@ -29,7 +28,6 @@ if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     OPTMIN="-O0"
 elif test "`$CC -flags 2>&1 | grep -qi suncc && echo suncc`" = suncc ; then
     echo "sun compiler"
-    echo
     WARN=""
     DEBUG="-g"
     OPTMAX="-xO5"
@@ -37,7 +35,6 @@ elif test "`$CC -flags 2>&1 | grep -qi suncc && echo suncc`" = suncc ; then
     OPTMIN="-xO1"
 elif test "`$CC --version 2>&1 | grep -qi icc && echo icc`" = icc ; then
     echo "intel compiler"
-    echo
     WARN="-Wall -wd810,981"
     DEBUG="-g3"
     OPTMAX="-O3"
@@ -45,7 +42,6 @@ elif test "`$CC --version 2>&1 | grep -qi icc && echo icc`" = icc ; then
     OPTMIN="-O0"
 elif test "`$CC -help 2>&1 | grep -qi 'Tiny C' && echo tcc`" = tcc ; then
     echo "tiny c compiler"
-    echo
     WARN="-W -Wall"
     DEBUG="-g"
     OPTMAX="-O3"
@@ -55,6 +51,7 @@ else
     echo "unknown compiler... aborting" >&2
     exit 1
 fi
+echo
 
 execute() {
     echo $@
