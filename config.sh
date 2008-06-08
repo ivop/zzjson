@@ -17,6 +17,7 @@ DEFINES="-D_ISOC99_SOURCE"
 AR=ar
 NOLINK="-c"
 SHARED="-shared"
+STRIP="strip -s"
 
 if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"
@@ -26,7 +27,6 @@ if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     OPTMAX="-O3"
     OPTSIZ="-Os -DCONFIG_NO_ERROR_MESSAGES"
     OPTMIN="-O0"
-    STRIP="-s"
 elif test "`$CC -flags 2>&1 | grep -qi suncc && echo suncc`" = suncc ; then
     echo "sun compiler"
     echo
@@ -35,7 +35,14 @@ elif test "`$CC -flags 2>&1 | grep -qi suncc && echo suncc`" = suncc ; then
     OPTMAX="-xO5"
     OPTSIZ="-xO5 -xspace -DCONFIG_NO_ERROR_MESSAGES"
     OPTMIN="-xO1"
-    STRIP="-s1"
+elif test "`$CC -help 2>&1 | grep -qi 'Tiny C' && echo tcc`" = tcc ; then
+    echo "tiny c compiler"
+    echo
+    WARN="-W -Wall"
+    DEBUG="-g"
+    OPTMAX="-O3"
+    OPTSIZ="-Os -DCONFIG_NO_ERROR_MESSAGES"
+    OPTMIN="-O0"
 else
     echo "unknown compiler... aborting" >&2
     exit 1
