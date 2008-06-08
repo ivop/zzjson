@@ -21,14 +21,14 @@ NOLINK="-c"
 SHARED="-shared"
 STRIP="strip -s"
 INCLUDES="-Iinclude"
+OPTMIN="-O0"
+OPTMAX="-O3"
+WARN="-W -Wall"
 
 if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"
-    WARN="-W -Wall"
     DEBUG="-g3"
-    OPTMAX="-O3"
     OPTSIZ="-Os -DCONFIG_NO_ERROR_MESSAGES"
-    OPTMIN="-O0"
 elif test "`$CC -flags 2>&1 | grep -qi suncc && echo suncc`" = suncc ; then
     echo "sun compiler"
     WARN=""
@@ -40,16 +40,11 @@ elif test "`$CC --version 2>&1 | grep -qi icc && echo icc`" = icc ; then
     echo "intel compiler"
     WARN="-Wall -wd810,981"
     DEBUG="-g3"
-    OPTMAX="-O3"
     OPTSIZ="-O2 -DCONFIG_NO_ERROR_MESSAGES"
-    OPTMIN="-O0"
 elif test "`$CC -help 2>&1 | grep -qi 'Tiny C' && echo tcc`" = tcc ; then
     echo "tiny c compiler"
-    WARN="-W -Wall"
     DEBUG="-g"
-    OPTMAX="-O3"
     OPTSIZ="-Os -DCONFIG_NO_ERROR_MESSAGES"
-    OPTMIN="-O0"
 else
     echo "unknown compiler... aborting" >&2
     exit 1
