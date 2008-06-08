@@ -29,6 +29,8 @@ typedef struct UNIContext {
     int (*putchar)(int c, void *ohandle);   //    out
     unsigned int ostate;                    //    out
     unsigned int xunival;                   //    out;
+    void *ehandle;                                          // in out
+    void (*error)(void *ehandle, const char *format, ...);  // in out
 } UNIContext;
 
 int unicode_getchar(UNIContext *uc);
