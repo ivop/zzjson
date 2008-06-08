@@ -9,6 +9,6 @@ execute rm -f *~ \
               zzjson_test{,_g,_s}${EXESUF} \
               example1{,_g,_s}${EXESUF} \
               example2{,_g,_s}${EXESUF}
-test -n "$OBJSUF"       && execute rm -f {src,unicode,examples}/*${OBJSUF}
+test -n "$OBJSUF"       && execute rm -f {src,unicode,examples,.}/*${OBJSUF}
 test -n "$LIBSTATICSUF" && execute rm -f lib/*${LIBSTATICSUF}
 test -n "$LIBSHAREDSUF" && execute rm -f lib/*${LIBSHAREDSUF}
