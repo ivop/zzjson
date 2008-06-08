@@ -16,6 +16,7 @@ LIBS="-lm -lc"
 DEFINES="-D_ISOC99_SOURCE"
 AR=ar
 NOLINK="-c"
+SHARED="-shared"
 
 if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"
