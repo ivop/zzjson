@@ -35,6 +35,14 @@ elif test "`$CC -flags 2>&1 | grep -qi suncc && echo suncc`" = suncc ; then
     OPTMAX="-xO5"
     OPTSIZ="-xO5 -xspace -DCONFIG_NO_ERROR_MESSAGES"
     OPTMIN="-xO1"
+elif test "`$CC --version 2>&1 | grep -qi icc && echo icc`" = icc ; then
+    echo "intel compiler"
+    echo
+    WARN="-Wall -wd810,981"
+    DEBUG="-g3"
+    OPTMAX="-O3"
+    OPTSIZ="-O2 -DCONFIG_NO_ERROR_MESSAGES"
+    OPTMIN="-O0"
 elif test "`$CC -help 2>&1 | grep -qi 'Tiny C' && echo tcc`" = tcc ; then
     echo "tiny c compiler"
     echo
