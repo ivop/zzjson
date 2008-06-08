@@ -34,4 +34,4 @@ echo
 echo "*** shared library, size optimized"
 create_lib
 
-test -n "$OBJSUF" && execute rm -f *$OBJSUF
+test -n "$OBJSUF" && execute rm -f src/*${OBJSUF}

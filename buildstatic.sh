@@ -31,3 +31,5 @@ CFLAGS="$INCLUDES $OPTSIZ $WARN $DEFINES"
 echo
 echo "*** static library, size optimized"
 create_lib
+
+test -n "$OBJSUF" && execute rm -f src/*${OBJSUF}
