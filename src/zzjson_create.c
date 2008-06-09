@@ -90,8 +90,11 @@ ZZJSON *zzjson_create_array(ZZJSON_CONFIG *config, ...) {
         if (val) {
             ZZJSON *next = zzjson_create_templ(config, ZZJSON_ARRAY);
             if (!next) {
-                zzjson_free(config, retval);
-                retval = NULL;
+                while (retval) {
+                    next = retval->next;
+                    config->free(retval);
+                    retval = next;
+                }
                 break;
             }
             zzjson->next = next;
