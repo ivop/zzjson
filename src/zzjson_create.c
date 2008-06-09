@@ -133,8 +133,12 @@ ZZJSON *zzjson_create_object(ZZJSON_CONFIG *config, ...) {
         if (label) {
             ZZJSON *next = zzjson_create_templ(config, ZZJSON_OBJECT);
             if (!next) {
-                zzjson_free(config, retval);
-                retval = NULL;
+                while (retval) {
+                    next = retval->next;
+                    config->free(retval->value.object.string);
+                    config->free(retval);
+                    retval = next;
+                }
                 break;
             }
             zzjson->next = next;
