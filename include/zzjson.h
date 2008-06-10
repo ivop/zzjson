@@ -60,7 +60,7 @@ typedef struct ZZJSON {
     ZZJSON_TYPE type;
     union {
         struct {
-            char *string;
+            char *label;
             struct ZZJSON *val;
         } object;
         struct {
