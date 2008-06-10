@@ -51,7 +51,7 @@ static int zzjson_print2(ZZJSON_CONFIG *config, ZZJSON *zzjson,
         case ZZJSON_OBJECT:
             if (zzjson->value.object.val) {
                 PRINT("\n%*s\"", indent+INC, "");
-                if (print_string(config, zzjson->value.object.string) < 0)
+                if (print_string(config, zzjson->value.object.label) < 0)
                     return -1;
                 PRINT("\" :");
                 if (zzjson_print2(config, zzjson->value.object.val,

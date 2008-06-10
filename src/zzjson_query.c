@@ -11,7 +11,7 @@ ZZJSON *zzjson_object_find_label(ZZJSON *zzjson, char *label) {
     if (zzjson->type != ZZJSON_OBJECT) return NULL;
 
     while (zzjson) {
-        char *string = zzjson->value.object.string;
+        char *string = zzjson->value.object.label;
 
         if (zzjson->type != ZZJSON_OBJECT) return NULL;
         if (!string)                       return NULL;
@@ -43,7 +43,7 @@ unsigned int zzjson_object_count(ZZJSON *zzjson) {
     unsigned int count = 1;
 
     if (zzjson->type != ZZJSON_OBJECT) return 0;
-    if (!zzjson->value.object.string)  return 0; /* empty { } */
+    if (!zzjson->value.object.label)   return 0; /* empty { } */
 
     while ((zzjson = zzjson->next)) count++;
 

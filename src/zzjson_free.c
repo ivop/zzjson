@@ -10,7 +10,7 @@ void zzjson_free(ZZJSON_CONFIG *config, ZZJSON *zzjson) {
         ZZJSON *next;
         switch(zzjson->type) {
             case ZZJSON_OBJECT:
-                config->free(zzjson->value.object.string);
+                config->free(zzjson->value.object.label);
                 zzjson_free(config, zzjson->value.object.val);
                 break;
             case ZZJSON_ARRAY:

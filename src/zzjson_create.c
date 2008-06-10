@@ -125,7 +125,7 @@ ZZJSON *zzjson_create_object(ZZJSON_CONFIG *config, ...) {
             break;
         }
 
-        zzjson->value.object.string = labelcopy;
+        zzjson->value.object.label  = labelcopy;
         zzjson->value.object.val    = val;
 
         label = va_arg(ap, char *);
@@ -135,7 +135,7 @@ ZZJSON *zzjson_create_object(ZZJSON_CONFIG *config, ...) {
             if (!next) {
                 while (retval) {
                     next = retval->next;
-                    config->free(retval->value.object.string);
+                    config->free(retval->value.object.label);
                     config->free(retval);
                     retval = next;
                 }
@@ -193,15 +193,15 @@ ZZJSON *zzjson_object_prepend(ZZJSON_CONFIG *config, ZZJSON *object,
 
     if (!labelcopy) return zzjson;
 
-    if (!object->value.object.string) { /* empty object */
-        object->value.object.string = labelcopy;
+    if (!object->value.object.label) { /* empty object */
+        object->value.object.label  = labelcopy;
         object->value.object.val    = val;
         return object;
     }
 
     zzjson = zzjson_create_templ(config, ZZJSON_OBJECT);
     if (zzjson) {
-        zzjson->value.object.string = labelcopy;
+        zzjson->value.object.label  = labelcopy;
         zzjson->value.object.val    = val;
         zzjson->next = object;
     } else {
@@ -217,8 +217,8 @@ ZZJSON *zzjson_object_append(ZZJSON_CONFIG *config, ZZJSON *object,
 
     if (!labelcopy) return zzjson;
 
-    if (!object->value.object.string) { /* empty object */
-        object->value.object.string = labelcopy;
+    if (!object->value.object.label) { /* empty object */
+        object->value.object.label  = labelcopy;
         object->value.object.val    = val;
         return object;
     }
@@ -231,7 +231,7 @@ ZZJSON *zzjson_object_append(ZZJSON_CONFIG *config, ZZJSON *object,
 
     while (object->next) object = object->next;
 
-    zzjson->value.object.string = labelcopy;
+    zzjson->value.object.label  = labelcopy;
     zzjson->value.object.val    = val;
     object->next = zzjson;
 

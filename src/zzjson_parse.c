@@ -418,7 +418,7 @@ errout_with_str_and_val:
             goto errout_with_str_and_val;
         }
         zzjson->type                = ZZJSON_OBJECT;
-        zzjson->value.object.string = str;
+        zzjson->value.object.label  = str;
         zzjson->value.object.val    = val;
         *next = zzjson;
         next = &zzjson->next;
