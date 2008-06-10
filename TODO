@@ -15,3 +15,5 @@
 
 This won't work for an UTF-8 empty object {} or array [] though.
 
+* i18n support for error messages
+
