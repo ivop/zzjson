@@ -2,7 +2,6 @@
  * License: GNU Lesser General Public License version 2.1
  */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stdint.h>
@@ -302,6 +301,8 @@ int unicode_putchar(int c, UNIContext *uc) {
     }
     return r;
 }
+
+#include <stdio.h>
 
 int unicode_print(UNIContext *uc, const char *fmt, ...) {
     int len = 16, r;
