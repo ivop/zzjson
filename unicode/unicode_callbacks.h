@@ -7,6 +7,8 @@
 
 #define UNGETCBUFSIZ    16
 
+#define UNICODE_CALLBACKS_API_VERSION 1
+
 typedef enum UNIType {
     UNI_ERROR = -1,
     UNI_UNKNOWN,
