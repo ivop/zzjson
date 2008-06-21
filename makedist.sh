@@ -14,6 +14,6 @@ execute rm -f zzjson-$VERSION/makedist.sh
 execute chown -R nobody:nogroup zzjson-$VERSION
 
 execute tar cjf zzjson-$VERSION.tar.bz2 zzjson-$VERSION
-execute tar czf zzjson-$VERSION.tar.gz2 zzjson-$VERSION
+execute tar czf zzjson-$VERSION.tar.gz zzjson-$VERSION
 
 execute rm -rf zzjson-$VERSION
