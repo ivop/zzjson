@@ -5,7 +5,7 @@
 
 BASEURL=https://zzjson.svn.sourceforge.net/svnroot/zzjson/
 
-test -z "$1" && echo "specify 'trunk' or a specific branch" && exit 2
+test -z "$1" && echo "specify 'trunk' or a specific branch or tag" && exit 2
 
 echo "*** retrieving $BASEURL$1"
 svn export -q $BASEURL/$1 zzjson-$VERSION
