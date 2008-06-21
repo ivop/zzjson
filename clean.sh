@@ -12,3 +12,4 @@ execute rm -f *~ */*~ \
 test -n "$OBJSUF"       && execute rm -f {src,unicode,examples,.}/*${OBJSUF}
 test -n "$LIBSTATICSUF" && execute rm -f lib/*${LIBSTATICSUF}
 test -n "$LIBSHAREDSUF" && execute rm -f lib/*${LIBSHAREDSUF}
+execute rm -rf zzjson-$VERSION zzjson-$VERSION.tar.*
