@@ -195,7 +195,7 @@ static int print_bom(UNIContext *uc) {
     return r;
 }
 
-/* used internally only; c is considered <- 16 bits
+/* used internally only; c is considered <= 16 bits
  * surrogates have to be converted for utf-8/utf-32
  */
 static int output_unicode(unsigned int c, UNIContext *uc) {
