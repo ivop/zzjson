@@ -2,16 +2,18 @@
 
 set -e
 
+toupper(){
+    echo "$@" | tr abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+}
+tolower(){
+    echo "$@" | tr ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz
+}
+
 VERSION=`grep ZZJSON_IDENT include/zzjson.h | cut -d '"' -f2 | cut -d ' ' -f2`
 echo "zzjson, version $VERSION"
 
 LIBSRC=`eval echo src/zzjson_{parse,print,query,create,free}.c`
 LIBBASE=libzzjson
-LIBSTATICSUF=.a
-LIBSHAREDSUF=.so
-LIBSHAREDSUFV=$VERSION.$LIBSHAREDSUF
-EXESUF=
-OBJSUF=.o
 
 CC=${CC:-cc}
 LIBS="-lm -lc"
@@ -49,7 +51,31 @@ else
     echo "unknown compiler... aborting" >&2
     exit 1
 fi
+
+SYSTEM=`uname -s 2>/dev/null`
+SYSTEM=`tolower $SYSTEM`
+test -z "$SYSTEM" && SYSTEM=unknown
+
+echo "system: $SYSTEM"
 echo
+
+LIBSHAREDSUF=.so
+LIBSTATICSUF=.a
+EXESUF=
+OBJSUF=.o
+
+case "$SYSTEM" in
+    darwin)
+        LIBSHAREDSUF=.dylib
+        SHARED=-dynamiclib
+        ;;
+    cygwin|mingw32)
+        LIBSHAREDSUF=.dll
+        EXESUF=.exe
+        ;;
+esac
+
+LIBSHAREDSUFV=$VERSION.$LIBSHAREDSUF
 
 execute() {
     echo $@
