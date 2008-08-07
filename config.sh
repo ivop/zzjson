@@ -8,8 +8,8 @@ echo "zzjson, version $VERSION"
 LIBSRC=`eval echo src/zzjson_{parse,print,query,create,free}.c`
 LIBBASE=libzzjson
 LIBSTATICSUF=.a
-LIBSHAREDSUFV=$VERSION.so
 LIBSHAREDSUF=.so
+LIBSHAREDSUFV=$VERSION.$LIBSHAREDSUF
 EXESUF=
 OBJSUF=.o
 
