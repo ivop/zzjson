@@ -69,7 +69,7 @@ case "$SYSTEM" in
         LIBSHAREDSUF=.dylib
         SHARED=-dynamiclib
         ;;
-    cygwin|mingw32)
+    cygwin*|mingw32*|freedos|opendos)
         LIBSHAREDSUF=.dll
         EXESUF=.exe
         ;;
