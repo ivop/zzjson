@@ -13,6 +13,6 @@ echo
 execute mkdir -p $INCDIR
 execute mkdir -p $LIBDIR
 
-execute cp -a lib/* $LIBDIR
-execute cp -a include/* $INCDIR
+execute cp lib/* $LIBDIR
+execute cp include/* $INCDIR
 
