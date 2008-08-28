@@ -1,0 +1,5 @@
+1.0.1
+-----
+
+* fixed typo in makedist.sh script
+* added support for building on Mac OS X (darwin)
