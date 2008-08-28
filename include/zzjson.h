@@ -10,9 +10,9 @@
 
 #define ZZJSON_VERSION_MAJOR    1
 #define ZZJSON_VERSION_MINOR    0
-#define ZZJSON_VERSION_MICRO    1
-#define ZZJSON_VERSION_INT      ( 1<<16 | 0<<8 | 1 )
-#define ZZJSON_IDENT            "zzjson 1.0.1"
+#define ZZJSON_VERSION_MICRO    2
+#define ZZJSON_VERSION_INT      ( 1<<16 | 0<<8 | 2 )
+#define ZZJSON_IDENT            "zzjson 1.0.2"
 
 /* Defines: */
 
