@@ -3,3 +3,4 @@
 
 * fixed typo in makedist.sh script
 * added support for building on Mac OS X (darwin)
+    [thanks to Cornelis Swanepoel]
