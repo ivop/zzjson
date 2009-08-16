@@ -1,3 +1,10 @@
+1.1.0
+-----
+
+* fixed symlinks in subsequent builds
+* added c-style comments support, plus test in testsuite
+    [based on code submitted by Kjetil Oftedal]
+
 1.0.1
 -----
 
