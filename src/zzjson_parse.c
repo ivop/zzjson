@@ -1,5 +1,5 @@
 /* JSON Parser
- * ZZJSON - Copyright (C) 2008 by Ivo van Poorten
+ * ZZJSON - Copyright (C) 2008-2009 by Ivo van Poorten
  * License: GNU Lesser General Public License version 2.1
  */
 
