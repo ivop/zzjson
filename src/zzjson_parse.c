@@ -39,7 +39,10 @@ morews:
     if (d != '*') goto endws; /* pushing back c will generate a parse error */
     c = GETC();
 morecomments:
-    while (c != '*') c = GETC();
+    while (c != '*') {
+        if (c == EOF) goto endws;
+        c = GETC();
+    }
     c = GETC();
     if (c != '/') goto morecomments;
     c = GETC();
