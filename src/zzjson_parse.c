@@ -29,8 +29,7 @@ static ZZJSON *parse_array(ZZJSON_CONFIG *config);
 static ZZJSON *parse_object(ZZJSON_CONFIG *config);
 
 static void skipws(ZZJSON_CONFIG *config) {
-    int d;
-    int c = GETC();
+    int d, c = GETC();
 morews:
     while (isspace(c)) c = GETC();
     if (!ALLOW_COMMENTS) goto endws;
