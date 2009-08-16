@@ -7,6 +7,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <math.h>
+#include <stdio.h>
 
 #define GETC()          config->getchar(config->ihandle)
 #define UNGETC(c)       config->ungetchar(c, config->ihandle)
@@ -22,13 +23,28 @@
 #define ALLOW_ILLEGAL_ESCAPE (config->strictness & ZZJSON_ALLOW_ILLEGAL_ESCAPE)
 #define ALLOW_CONTROL_CHARS  (config->strictness & ZZJSON_ALLOW_CONTROL_CHARS)
 #define ALLOW_GARBAGE_AT_END (config->strictness & ZZJSON_ALLOW_GARBAGE_AT_END)
+#define ALLOW_COMMENTS       (config->strictness & ZZJSON_ALLOW_COMMENTS)
 
 static ZZJSON *parse_array(ZZJSON_CONFIG *config);
 static ZZJSON *parse_object(ZZJSON_CONFIG *config);
 
 static void skipws(ZZJSON_CONFIG *config) {
+    int d;
     int c = GETC();
+morews:
     while (isspace(c)) c = GETC();
+    if (!ALLOW_COMMENTS) goto endws;
+    if (c != '/') goto endws;
+    d = GETC();
+    if (d != '*') goto endws; /* pushing back c will generate a parse error */
+    c = GETC();
+morecomments:
+    while (c != '*') c = GETC();
+    c = GETC();
+    if (c != '/') goto morecomments;
+    c = GETC();
+    if (isspace(c) || c == '/') goto morews;
+endws:
     UNGETC(c);
 }
 

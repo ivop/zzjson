@@ -20,6 +20,7 @@
 #define ZZJSON_ALLOW_ILLEGAL_ESCAPE     2
 #define ZZJSON_ALLOW_CONTROL_CHARS      4
 #define ZZJSON_ALLOW_GARBAGE_AT_END     8
+#define ZZJSON_ALLOW_COMMENTS           16
 
 #define ZZJSON_VERY_LOOSE               (-1)
 #define ZZJSON_VERY_STRICT              0
