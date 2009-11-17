@@ -1,4 +1,4 @@
-/* ZZJSON - Copyright (C) 2008 by Ivo van Poorten
+/* ZZJSON - Copyright (C) 2008-2009 by Ivo van Poorten
  * License: GNU Lesser General Public License version 2.1
  */
 #ifndef ZZJSON_H
@@ -10,9 +10,9 @@
 
 #define ZZJSON_VERSION_MAJOR    1
 #define ZZJSON_VERSION_MINOR    1
-#define ZZJSON_VERSION_MICRO    0
-#define ZZJSON_VERSION_INT      ( 1<<16 | 1<<8 | 0 )
-#define ZZJSON_IDENT            "zzjson 1.1.0"
+#define ZZJSON_VERSION_MICRO    1
+#define ZZJSON_VERSION_INT      ( 1<<16 | 1<<8 | 1 )
+#define ZZJSON_IDENT            "zzjson 1.1.1"
 
 /* Defines: */
 
