@@ -27,7 +27,7 @@ OPTMIN="-O0"
 OPTMAX="-O3"
 WARN="-W -Wall"
 
-if test "`$CC --version 2>&1 | grep -qi gcc && echo gcc`" = gcc ; then
+if test "`$CC -v 2>&1 | grep -qi ^gcc && echo gcc`" = gcc ; then
     echo "gnu compiler"
     DEBUG="-g3"
     OPTSIZ="-Os -DCONFIG_NO_ERROR_MESSAGES"
