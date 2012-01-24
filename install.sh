@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. config.sh
+. ./config.sh
 
 PREFIX=${PREFIX:-/usr/local}
 DESTDIR=${DESTDIR:-}

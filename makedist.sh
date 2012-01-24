@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. config.sh
+. ./config.sh
 
 
 BASEURL=https://zzjson.svn.sourceforge.net/svnroot/zzjson/

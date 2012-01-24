@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. config.sh
+. ./config.sh
 
 COMMON="$INCLUDES $LIBS $WARN $DEFINES -D_SVID_SOURCE"
 

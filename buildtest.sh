@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. config.sh
+. ./config.sh
 
 EXEBASE=zzjson_test
 

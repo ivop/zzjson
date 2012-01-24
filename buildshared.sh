@@ -1,6 +1,6 @@
 #! /bin/sh
 
-. config.sh
+. ./config.sh
 
 create_lib() {
     execute rm -f $LIBSO $LIBSOV
