@@ -1,3 +1,8 @@
+1.1.1
+-----
+* fix parse_literal() argument to const char *s
+* source ./config.sh instead of plain config.sh
+
 1.1.0
 -----
 
