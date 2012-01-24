@@ -232,7 +232,7 @@ skipexpo:
     return zzjson;
 }
 
-static ZZJSON *parse_literal(ZZJSON_CONFIG *config, char *s, ZZJSON_TYPE t) {
+static ZZJSON *parse_literal(ZZJSON_CONFIG *config, const char *s, ZZJSON_TYPE t) {
     char b[strlen(s)+1];
     unsigned int i;
 
