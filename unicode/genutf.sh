@@ -2,7 +2,6 @@
 
 # iconv does not always output a BOM, so we work around that
 
-
 for i in "utf-8,\xef\xbb\xbf" \
          "utf-16le,\xff\xfe" \
          "utf-16be,\xfe\xff" \
@@ -10,7 +9,7 @@ for i in "utf-8,\xef\xbb\xbf" \
          "utf-32be,\x00\x00\xfe\xff" ; do
     j=`echo $i | cut -d ',' -f 1`
     bom=`echo $i | cut -d ',' -f 2`
-    printf "$bom" > $j.json
+    /usr/bin/printf "$bom" > $j.json
     iconv -f ISO-8859-1 -t $j ISO-8859-1.json >> $j.json
 done
 
