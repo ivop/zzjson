@@ -1,12 +1,19 @@
 # API Documentation (version 1.1.x)
 
-Contents
-
-1. [Features](#features)
-2. [Datatypes](#datatypes)
-3. [Functions](#functions)
-4. [Sample Unicode callback functions](#sample-unicode-callback-functions)
-5. [Using zzjson from C++](#using-zzjson-from-c)
+1. [Getting started](#getting-started)  
+2. [Datatypes](#datatypes)  
+   2.1. [Callbacks configuration](#callbacks-configuration)  
+   2.2. [ZZJSON struct](#zzjson-struct)  
+3. [Functions](#functions)  
+   3.1. [Parsing](#parsing)  
+   3.2. [Printing](#printing)  
+   3.3. [Querying](#querying)  
+   3.4. [Creating](#creating)  
+   3.5. [Freeing](#freeing)  
+4. [Sample Unicode callback functions](#sample-unicode-callback-functions)  
+   4.1. [UNIContext](#unicontext)  
+   4.2. [Functions](#functions-1)  
+5. [Using zzjson from C++](#using-zzjson-from-c)  
 
 ## Getting started
 
