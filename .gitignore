@@ -1,3 +1,6 @@
 *~
 *.o
 lib
+libzzjson.a
+libzzjson.so
+zzjson_test
