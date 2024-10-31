@@ -2,6 +2,12 @@
 
 Contents
 
+1. [Features](#features)
+2. [Datatypes](#datatypes)
+3. [Functions](#functions)
+4. [Sample Unicode callback functions](#sample-unicode-callback-functions)
+5. [Using zzjson from C++](#using-zzjson-from-c)
+
 ## Getting started
 
 Using zzjson from within your code needs the inclusion of zzjson.h.
