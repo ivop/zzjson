@@ -243,14 +243,10 @@ freed before returning NULL. The specified arguments (ZZJSON structures
 and labels) are not freed.
 
 ```
-ZZJSON *zzjson_array_prepend(ZZJSON_CONFIG *config, ZZJSON *array,
-                                                    ZZJSON *val);
-ZZJSON *zzjson_array_append (ZZJSON_CONFIG *config, ZZJSON *array,
-                                                    ZZJSON *val);
-ZZJSON *zzjson_object_prepend(ZZJSON_CONFIG *config, ZZJSON *object,
-                                        char *label, ZZJSON *val);
-ZZJSON *zzjson_object_append (ZZJSON_CONFIG *config, ZZJSON *object,
-                                        char *label, ZZJSON *val);
+ZZJSON *zzjson_array_prepend(ZZJSON_CONFIG *config, ZZJSON *array, ZZJSON *val);
+ZZJSON *zzjson_array_append (ZZJSON_CONFIG *config, ZZJSON *array, ZZJSON *val);
+ZZJSON *zzjson_object_prepend(ZZJSON_CONFIG *config, ZZJSON *object, char *label, ZZJSON *val);
+ZZJSON *zzjson_object_append (ZZJSON_CONFIG *config, ZZJSON *object, char *label, ZZJSON *val);
 ```
 
 The specified value or label-value-pair is either prepended or appended
