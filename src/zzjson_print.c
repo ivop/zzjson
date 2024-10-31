@@ -5,8 +5,8 @@
 
 #include "zzjson.h"
 
-#define PRINT(fmt...) if (config->print(config->ohandle, ##fmt) < 0) return -1;
-#define PUTC(c)       if (config->putchar(c, config->ohandle) < 0) return -1;
+#define PRINT(...) if(config->print(config->ohandle,__VA_ARGS__) < 0) return -1;
+#define PUTC(c)    if (config->putchar(c, config->ohandle) < 0) return -1;
 #define INC 4
 
 static int print_string(ZZJSON_CONFIG *config, char *s) {

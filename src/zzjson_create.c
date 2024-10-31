@@ -9,9 +9,9 @@
 #include <stdarg.h>
 
 #ifdef CONFIG_NO_ERROR_MESSAGES
-#define ERROR(x...)
+#define ERROR(...)
 #else
-#define ERROR(x...)     config->error(config->ehandle, ##x)
+#define ERROR(...)      config->error(config->ehandle, __VA_ARGS__)
 #endif
 #define MEMERROR()      ERROR("out of memory")
 
