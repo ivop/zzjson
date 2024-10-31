@@ -1,6 +1,7 @@
 Preserved from [sourceforge](https://zzjson.sourceforge.net/) at 2024-10-31  
 Updated to build with modern tools. [API documentation](doc/api-1.1.md) converted to markdown.
-This is an old project, but might still be useful. The parser is very small.  
+This is an old project, but might still be useful. The parser is very small. After
+all these years, it seems SysLinux still [uses it](https://github.com/geneC/syslinux/tree/master/com32/gpllib/zzjson).
 
 ==================================================================================
 
