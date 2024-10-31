@@ -1,3 +1,9 @@
+Preserved from [sourceforge](https://zzjson.sourceforge.net/) at 2024-10-31  
+Updated to build with modern tools. [API documentation](doc/api-1.1.md) converted to markdown.
+This is an old project, but might still be useful. The parser is very small.  
+
+==================================================================================
+
 zzjson - Copyright (C) 2008-2012 by Ivo van Poorten
 
 zzjson is licensed under the GNU Lesser General Public License, version 2.1.
